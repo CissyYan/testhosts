@@ -1,0 +1,11 @@
+#!name=qdxx
+#!desc=https://raw.githubusercontent.com/chxm1023/Task/main/qdxx.comf
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Shin-chan/Shin-chan-1006.png
+
+[Script]
+# 起点读书获取广告/任务信息
+http-request https\:\/\/h5\.if\.qidian\.com\/argus\/api\/v1\/video\/adv\/finishWatch script-path=https://raw.githubusercontent.com/MCdasheng/QuantumultX/main/Scripts/myScripts/qidian/qidian.cookie.js, requires-body=true, timeout=60, tag=qidian.cookie
+http-response https\:\/\/h5\.if\.qidian\.com\/argus\/api\/v1\/video\/adv\/mainPage script-path=https://raw.githubusercontent.com/MCdasheng/QuantumultX/main/Scripts/myScripts/qidian/qidian.taskId.js, requires-body=true, timeout=60, tag=qidian.taskId
+
+[MITM]
+hostname = h5.if.qidian.com</pre>
