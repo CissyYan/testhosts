@@ -10,10 +10,8 @@ https://raw.githubusercontent.com/chxm1023/Script_X/main/Collections.plugin
 hostname = lp-vid.xiongmaoboshi.com, lp-api.xiongmaoboshi.com, *ubestkid*, mobile.flightradar24.com, spclient.wg.spotify.com, *wps*, ticktick.com, ap*.intsig.net, *.aoscdn.com, *.xiuxiu.meitu.com, api.posters.meitu.com, api-*.meitu.com , claritywallpaper.com, api.meiease.cn, restore-access.indream.app, appraven.net, v2.appraven.net, explorer.tratao.com,api.revenuecat.com,storybook.ifenghui.com, mb3admin.com
 [Script]
 #Spotify
-#http-response ^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ script-path = https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js, requires-body = true,binary-body-mode=true, tag = Spotify-proto
-#http-request ^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/ script-path = https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js, tag = Spotify-json
-http-request ^https?:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/ script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js, timeout=10, tag=Spotify-Json
-http-response ^https?:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ script-path = https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js, requires-body=true, binary-body-mode=true, timeout=10, tag=Spotify-Proto
+http-response ^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ script-path = https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js, requires-body = true,binary-body-mode=true, tag = Spotify-proto
+http-request ^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/ script-path = https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js, tag = Spotify-json
 
 
 #美图秀秀
