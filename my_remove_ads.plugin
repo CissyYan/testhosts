@@ -1,29 +1,81 @@
-#!name =墨鱼去广告
-#!desc = 整合墨鱼QX去广告脚本
-#!homepage = https://t.me/ddgksf2021
-#!author = ddgksf2013
+#!name =去广告
+#!desc = 整合自用去广告脚本
+#!homepage = https://t.me/ddgksf2021  https://gitlab.com/lodepuly/vpn_tool/-/tree/master/Tool/Loon/Plugin https://github.com/app2smile/rules
+#!author = ddgksf2013 可莉🅥  app2smil
 #!icon = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/AdBlack.png
 ##https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/StartUp.conf##
 
 [Mitm]
-hostname = *.qyfxgd.cn, *.weilai555.com, *.ecoliving168.com,vpic.cms.qq.com,m.taobao.com, api.ys7.com, i.ys7.com
+hostname = *.qyfxgd.cn,api-access.pangolin-sdk-toutiao.com, mi.gdt.qq.com, open.e.kuaishou.com,m.taobao.com, api.ys7.com, i.ys7.com ,hostname = api-access.pangolin-sdk-toutiao.com, api.mh.163.com, p.du.163.com, api.m.mi.com, *.huami.com, api.jr.mi.com, home.mi.com, shopapi.io.mi.com, img.dailmo.com, img.allahall.com, app.zhoudamozi.com, api.pinduoduo.com, api.yangkeduo.com, gw.alicdn.com, acs.m.taobao.com, ccmsupport-sz.tenpay.com, m.qianbao.qq.com, app.missevan.com, api-access.pangolin-sdk-toutiao.com, mi.gdt.qq.com, open.e.kuaishou.com, hfapp-service.qweather.net, home.umetrip.com, umerp.umetrip.com, us.l.qq.com, dict.youdao.com, api-overmind.youdao.com, cdke.youdao.com, acs.m.taobao.com, guide-acs.m.taobao.com, gw.alicdn.com, heic.alicdn.com, client.app.coc.10086.cn, m.sd.10086.cn, gx.10086.cn, api.ahmobile.cn, wap.js.10086.cn, god.gameyw.netease.com, v6ii.gdt.qq.com, client-api-v2.oray.com, sfo.mddcloud.com.cn, mob.mddcloud.com.cn, toblog.ctobsnssdk.com, t-dsp.pinduoduo.com, mobads-pre-config.cdn.bcebos.com, sdk1xyajs.data.kuiniuca.com, conf-darwin.xycdn.com, *.ubixioe.com, mercury-gateway.ixiaochuan.cn, api.wfdata.club, mall.meituan.com, iyes.youku.com, acs.m.goofish.com, portal-portm.meituan.com, service.gd.10086.cn, gw.chuangkit.com, qiye.gaoding.com, app.10099.com.cn
 
 [Rule]
-#555影视
-#URL-REGEX, ^https?:\/\/[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+){1,3}(:\d+)?\/api\/v\d\/advert, REJECT-DICT
-#URL-REGEX,  ^https?:\/\/vpic\.cms\.qq\.com\/nj_vpic\/, REJECT-DICT
+# 字节跳动 - 广告服务商
+DOMAIN, ad.zijieapi.com, REJECT
+DOMAIN, i.snssdk.com, REJECT
+DOMAIN, is.snssdk.com, REJECT
+DOMAIN-KEYWORD, -ad-sign.byteimg.com, REJECT
+DOMAIN-KEYWORD, -tos.pstatp.com, REJECT-DROP
+DOMAIN-KEYWORD, asiad.byteactivity, REJECT
+DOMAIN-KEYWORD, pangolin.snssdk.com, REJECT
+DOMAIN-KEYWORD, pangolin-sdk-toutiao, REJECT
+DOMAIN-KEYWORD, pglstatp-toutiao, REJECT
+DOMAIN-KEYWORD, video-cn.snssdk.com, REJECT
+
+# 快手联盟 - 广告服务商
+DOMAIN, open.e.kuaishou.com, REJECT
+
+# 秒针系统 - 广告服务商
+DOMAIN-SUFFIX, miaozhen.com, REJECT
+
+# 达佳互联 - 广告服务商
+DOMAIN-SUFFIX, adukwai.com, REJECT
+
+# 艾狄墨搏 - 广告服务商
+DOMAIN, monitor.ssp.admobile.top, REJECT
+DOMAIN, sdk.ssp.admobile.top, REJECT
+DOMAIN-SUFFIX, admobile.top, REJECT
+
+# 极光 - 广告服务商
+DOMAIN-SUFFIX, jiguang.cn, REJECT
+
+# 百度联盟 - 广告服务商
+DOMAIN-SUFFIX, union.baidu.cn, REJECT
+DOMAIN-SUFFIX, union.baidu.com, REJECT
+
+# 腾讯优量汇 - 广告服务商
+DOMAIN, mazu.m.qq.com, REJECT
+DOMAIN, sdk.e.qq.com, REJECT
+# DOMAIN-SUFFIX, gdt.qq.com, REJECT
+
+# 天目 - 广告服务商
+DOMAIN, sdk.tianmu.mobi, REJECT
+# 小米
+DOMAIN, sdkconfig.ad.xiaomi.com, REJECT-DROP
+DOMAIN, data.mistat.xiaomi.com, REJECT
+DOMAIN, tracking.intl.miui.com, REJECT
+# 米家
+DOMAIN, sdkconfig.ad.xiaomi.com, REJECT
 
 [Script]
-#555影视
-http-response ^https?:\/\/[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+){1,3}(:\d+)?\/api\/v\d\/movie\/index_recommend script-path = https://github.com/ddgksf2013/Scripts/raw/master/555Ad.js, requires-body = true,binary-body-mode=true, tag = 555影视去广告
+#广告联盟
+http-response ^https:\/\/(api-access\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/get_ads|open\.e\.kuaishou\.com\/rest\/e\/v3\/open\/univ$|mi\.gdt\.qq\.com\/gdt_mview\.fcg\?) script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/adsense.js, requires-body=true, timeout=10, tag=广告联盟json
 
 [Rewrite]
-#555影视
-^https?:\/\/[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+){1,3}(:\d+)?\/api\/v\d\/advert reject-200
-^https?:\/\/vpic\.cms\.qq\.com\/nj_vpic\/ reject-200
 #damai
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.wireless\.home\.welcome reject-200
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.mec\.popup\.get reject-200
 #yingshiyun
 ^https?:\/\/api\.ys7\.com\/api\/ads url reject-200
 ^https?:\/\/i\.ys7\.com\/api\/ads\/ url reject-200
+# 航旅纵横 @Dragon
+# 首页悬浮标签
+^http:\/\/home\.umetrip\.com\/gateway\/api\/umetrip\/native reject
+# 我的页面轮播图
+^http:\/\/umerp\.umetrip\.com\/gateway\/api\/umetrip\/native reject
+
+# 拼多多 //api.pinduoduo.com, api.yangkeduo.com
+^https:\/\/api\.(pinduoduo|yangkeduo)\.com\/api\/cappuccino\/splash reject
+
+# 米家
+^https:\/\/home\.mi\.com\/cgi-op\/api\/v1\/recommendation\/(banner|myTab)\? reject-dict
+^https:\/\/home\.mi\.com\/cgi-op\/api\/v1\/recommendation\/(banner|carousel\/banners|myTab|openingBanner) reject-dict
