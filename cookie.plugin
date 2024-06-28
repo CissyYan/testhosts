@@ -1,7 +1,7 @@
 #!name=签到cookie获取
 #!desc=收集自用脚本
 #!homepage=https://gist.githubusercontent.com/Sliverkiss/33800a98dcd029ba09f8b6fc6f0f5162/raw/aliyun.js https://gist.githubusercontent.com/Sliverkiss/a7496bd073820942b44a9b36874aaf4c/raw/sliverkiss.loon.plugin https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/tuhu.js
-#!author=
+#!author=@骨钉 @blackmatrix7 @Sliverkiss等
 #!icon=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute/clock.png
 
 [Script]
@@ -9,9 +9,7 @@
 http-request ^https:\/\/(auth|aliyundrive)\.alipan\.com\/v2\/account\/token script-path=https://gist.githubusercontent.com/Sliverkiss/33800a98dcd029ba09f8b6fc6f0f5162/raw/aliyun.js, requires-body=true, timeout=60, tag=获取cookie
 # 获取什么值得买任务需要的各项参数
 http-request ^https?:\/\/user-api\.smzdm\.com\/checkin$ script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_daily.js, timeout=60, tag=smzdm_daily
-# 获取森空岛签到需要的各项参数
-http-response ^https://as.hypergryph.com/user/info/v1/basic script-path=https://raw.githubusercontent.com/kayanouriko/quantumultx-skland-auto-sign/main/src/skland.token.js, requires-body=true, timeout=60, tag=skland.token
-http-request ^https://zonai.skland.com/api/v1/game script-path=https://raw.githubusercontent.com/kayanouriko/quantumultx-skland-auto-sign/main/src/skland.token.js, timeout=60, tag=skland.token
+
 # 获取高德地图签到需要的各项参数
 http-response ^https:\/\/(m5(|-zb)|dache)\.amap\.com\/(ws\/yuece\/(act|openapi\/activity\/current)\/query|common\/(alipaymini|wxmini)\?_ENCRYPT=) script-path=https://raw.githubusercontent.com/wf021325/qx/master/task/ampDache.js, requires-body=true, timeout=60, tag=ampDache
 # 星星充电
@@ -21,8 +19,9 @@ http-request https:\/\/api\.tuhu\.cn\/User\/GetInternalCenterInfo tag=途虎养�
 
 # 获取建行生活签到需要的各项参数
 http-request ^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A038|autoLogin) script-path=https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js, requires-body=true, timeout=60, tag=jhsh_checkIn
+
 # 获取霸王茶姬签到需要的各项参数
-http-request ^https?:\/\/(webapi|qmwebapi)\.qmai\.cn\/web\/(catering2-apiserver\/customer-suggest\/query-feedback-config|catering\/crm\/points-info) script-path=https://raw.githubusercontent.com/Guding88/Script/main/bawangchaji/bwcj_token.js, requires-body=false, img-url=https://raw.githubusercontent.com/Guding88/Script/main/bawangchaji/bwcj.png, tag=霸王茶姬token
+http-request ^https?:\/\/(webapi|qmwebapi|webapi2)\.qmai\.cn\/web\/(catering2-apiserver\/customer-suggest\/query-feedback-config|catering\/crm\/points-info) script-path=https://raw.githubusercontent.com/Guding88/Script/main/bawangchaji/bwcj_token.js, requires-body=false, img-url=https://raw.githubusercontent.com/Guding88/Script/main/bawangchaji/bwcj.png, tag=霸王茶姬token
 
 [MITM]
-hostname = auth.alipan.com, auth.aliyundrive.com, user-api.smzdm.com, as.hypergryph.com, zonai.skland.com, *.amap.com,gateway.starcharge.com, music.163.com, mvip.midea.cn, apph5.manmanbuy.com, app.hbooker.com, wx.10099.com.cn, api.weibo.cn, passport.iqiyi.com, apis.folidaymall.com, game.dominos.com.cn, yunbusiness.ccb.com, i.meituan.com, crm.nestlechinese.com, testflight.apple.com, sweixin.hisense.com, cps.hisense.com, c.tieba.baidu.com, tiebac.baidu.com, user-api.smzdm.com, auth.alipan.com, auth.aliyundrive.com, zxcstxt.com, api.hellobike.com, mall.meituan.com, sytgate.jslife.com.cn, hweb-personalcenter.huazhu.com, dm.yeemiao.com, api.tuhu.cn, qmwebapi.qmai.cn, webapi.qmai.cn, api.cloud.189.cn, api-ipv6.app.acfun.cn, *.acfun.cn, *.app.acfun.cn, h5.if.qidian.com, *.xbiao.com, miniapp.yaduo.com, yuchen.tonghuaios.com, ios.songshuyouxi.com, as.hypergryph.com, zonai.skland.com, bbs-api.mihoyo.com, api-takumi.mihoyo.com, example.com, *.amap.com,api.tuhu.cn,qmwebapi.qmai.cn, webapi.qmai.cn
+hostname = auth.alipan.com, auth.aliyundrive.com, user-api.smzdm.com, as.hypergryph.com, zonai.skland.com, *.amap.com,gateway.starcharge.com, music.163.com, mvip.midea.cn, apph5.manmanbuy.com, app.hbooker.com, wx.10099.com.cn, api.weibo.cn, passport.iqiyi.com, apis.folidaymall.com, game.dominos.com.cn, yunbusiness.ccb.com, i.meituan.com, crm.nestlechinese.com, testflight.apple.com, sweixin.hisense.com, cps.hisense.com, c.tieba.baidu.com, tiebac.baidu.com, user-api.smzdm.com, auth.alipan.com, auth.aliyundrive.com, zxcstxt.com, api.hellobike.com, mall.meituan.com, sytgate.jslife.com.cn, hweb-personalcenter.huazhu.com, dm.yeemiao.com, api.tuhu.cn, qmwebapi.qmai.cn, webapi.qmai.cn, webapi2.qmai.cn, api.cloud.189.cn, api-ipv6.app.acfun.cn, *.acfun.cn, *.app.acfun.cn, h5.if.qidian.com, *.xbiao.com, miniapp.yaduo.com, yuchen.tonghuaios.com, ios.songshuyouxi.com, as.hypergryph.com, zonai.skland.com, bbs-api.mihoyo.com, api-takumi.mihoyo.com, example.com, *.amap.com,api.tuhu.cn,qmwebapi.qmai.cn, webapi.qmai.cn
