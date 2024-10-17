@@ -7,7 +7,7 @@ https://github.com/ddgksf2013/dev/raw/master/ForOwnUse.conf
 https://raw.githubusercontent.com/chxm1023/Script_X/main/Collections.plugin
 ####
 [Mitm]
-hostname = lp-vid.xiongmaoboshi.com, lp-api.xiongmaoboshi.com, *ubestkid*, mobile.flightradar24.com, spclient.wg.spotify.com, *wps*, ticktick.com, ap*.intsig.net, *.aoscdn.com, *.xiuxiu.meitu.com, api.posters.meitu.com, api-*.meitu.com , claritywallpaper.com, api.meiease.cn, restore-access.indream.app, appraven.net, v2.appraven.net, explorer.tratao.com,api.revenuecat.com,storybook.ifenghui.com, mb3admin.com
+hostname = *ubestkid*, mobile.flightradar24.com, spclient.wg.spotify.com, *wps*, ticktick.com, ap*.intsig.net, *.aoscdn.com, *.xiuxiu.meitu.com, api.posters.meitu.com, api-*.meitu.com , claritywallpaper.com, api.meiease.cn, restore-access.indream.app, appraven.net, v2.appraven.net, explorer.tratao.com,storybook.ifenghui.com, mb3admin.com
 [Script]
 #Spotify
 http-response ^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ script-path = https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js, requires-body = true,binary-body-mode=true, tag = Spotify-proto
@@ -35,13 +35,10 @@ http-response ^https?:\/\/(xremit\.xcurrency|explorer.tratao)\.com\/api\/client\
 # http-request ^https?:\/\/(api|wrapper)\.(cyapi|caiyunapp)\.(cn|com)\/v\d\/(satellite|nafp\/origin_images) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/caiyuntianqi.js, requires-body=false, tag=彩云天气-SVIP地图
 
 # Revenuecat解锁系列
-http-response ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/Reheji.js, requires-body=true, tag=Revenuecat解锁系列
-http-request ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/Reheji.js, requires-body=false, tag=Reheji
+#http-response ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/Reheji.js, requires-body=true, tag=Revenuecat解锁系列
+#http-request ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/Reheji.js, requires-body=false, tag=Reheji
 
 # Emby(解锁播放权限)
 http-response ^https?:\/\/mb3admin\.com\/admin\/service(\/registration\/validateDevice|\/appstore\/register|\/registration\/validate|\/registration\/getStatus|\/supporter\/retrievekey) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/embycrack.js, requires-body=true, tag=Emby(解锁播放权限)
 
-# 熊猫博士
-http-response ^https://lp-api.xiongmaoboshi.com/lp-api/ns script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/xiongmaoboshibaike.js, requires-body=true, timeout=60, tag=熊猫博士
-http-request ^https:\/\/lp-vid\.xiongmaoboshi\.com\/.*\.m3u8$ script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/m3u8/xiongmaoboshibaike.js, timeout=60, tag=熊猫博士获取完整视频
 
